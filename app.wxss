@@ -1,0 +1,10 @@
+@import "assets/css/main.wxss";
+@import "assets/css/icon.wxss";
+page {
+  height: 100%;
+  display: flex;
+  background: #fff; 
+  flex-direction: column;  
+  box-sizing: border-box;
+  font-size: 34rpx;
+} 
