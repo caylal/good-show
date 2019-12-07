@@ -29,7 +29,7 @@ export const Apis = {
     restful: new Restful('addr') // 获取地址信息
   },
   auth: {
-    login: 'login/wx'
+    login: 'loginBywx'
   },
   user: {
     restful: new Restful('user')

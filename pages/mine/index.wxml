@@ -1,2 +1,13 @@
-<!--pages/mine/index.wxml-->
-<text>pages/mine/index.wxml</text>
+<!--pages/mine/mine.wxml-->
+<head-view title="" needBack="{{false}}" needHeight="{{fasle}}" background=""></head-view>
+
+<view class='bg-view'>
+  <image class="icon-view" src="{{info.avatar}}"></image>
+  <text class='icon-text'>{{info.name}}</text>
+</view>
+<view class="item">
+  <view class="content" bindtap="CopyLink" data-link="3544395">
+    <text class="cuIcon-writefill text-cyan"></text>
+    <text class="text-grey margin-left-xs">我的订单</text>
+  </view>
+</view>

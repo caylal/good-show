@@ -1,5 +1,5 @@
 import user from '../../service/user.js'
-import util from '../../utils/util.js'
+import { getPageUrl } from '../../utils/util.js'
 import { LogFactory } from '../../service/log/logFactory.js'
 
 const log = LogFactory.get("Authorize")
@@ -28,16 +28,16 @@ Page({
           })
           wx.getUserInfo({
             success: res => {
-              log.log(util.getPageUrl() + ' wx.getUserInfo: ', res)
+              log.log(getPageUrl() + ' wx.getUserInfo: ', res)
               user.loginByCustom(res.userInfo).then(res => {
                 app.globalData.userInfo = res.user
                 app.globalData.token = res.token
-                log.log(util.getPageUrl() + ' loginByCustomer: ', res)
-                wx.redirectTo({
-                  url: "/pages/location/location"
+                log.log(getPageUrl() + ' loginByCustomer: ', res)
+                wx.switchTab({
+                  url: "/pages/mine/index"
                 })
               }).catch(err => {
-                log.log(util.getPageUrl(), err)
+                log.log(getPageUrl(), err)
                 wx.showToast({
                   title: err,
                 })
@@ -52,12 +52,12 @@ Page({
   bindGetUserInfo(e) {
     let _this = this
     if (e.detail.userInfo) {
-      log.log(util.getPageUrl() + '用户信息：', e.detail.userInfo)
+      log.log(getPageUrl() + '用户信息：', e.detail.userInfo)
       user.loginByCustom(e.detail.userInfo).then(res => {
         getApp().globalData.userInfo = res.user
         getApp().globalData.token = res.token
-        wx.redirectTo({
-          url: "/pages/location/location"
+        wx.switchTab({
+          url: "/pages/mine/index"
         })
       }).catch(err => {
         //登录失败,跳转错误页面       
@@ -73,7 +73,7 @@ Page({
         confirmText: '返回授权',
         success: function (res) {
           if (res.confirm) {
-            log.log(util.getPageUrl() + ' 用户点击了“返回授权”', res)
+            log.log(getPageUrl() + ' 用户点击了“返回授权”', res)
           }
         }
       })

@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    info: {}
   },
 
   /**
@@ -21,6 +21,10 @@ Page({
         url: '/pages/authorize/index',
       })
     }
+    const info = wx.getStorageSync('userInfo')
+    this.setData({
+      info: info
+    })
   },
 
   /**

@@ -64,10 +64,17 @@ const s_list = [
   }
 ]
 
+// 微信登录
+const loginUser = {
+  user: { openid: 'oBtr-0JClB18EjozGjP-PbQf_AW4' },
+  token: { session_key: 'brN8JCSMB519ajSXCzMYYQ==', expires_in: 7200 }
+}
+
 
 const template = {
   banner: b_list,
-  show: s_list
+  show: s_list,
+  login: loginUser
 }
 
 export const getMock = (res) => {
@@ -76,7 +83,8 @@ export const getMock = (res) => {
 
 export const MockApis = {
   'banner': req => getData(req.body, template.banner),
-  'getShow': req => getData(req.body, template.show)
+  'getShow': req => getData(req.body, template.show),
+  'loginBywx': req => getData(req.body, template.login)
 }
 
 export const getData = (req, tpl) => {

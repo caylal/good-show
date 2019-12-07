@@ -31,7 +31,7 @@ export const Level = {
 }
 export const Authorize = {
   "enable": true,
-  "login": "auth/login/wx"
+  "login": "loginBywx"
 }
 // export const HttpMethod = {
 //   GET: 0, 
@@ -40,7 +40,7 @@ export const Authorize = {
 //   DELETE: 3
 // }
 
-export const apiPrefix = 'http://locahost:8080'
+export const apiPrefix = 'http://locahost:3000'
 
 export const cfgMock = {
   "enable": true,
