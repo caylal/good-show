@@ -23,7 +23,7 @@
 }
 .show-item{
   padding: 20rpx 15rpx;
-  height: 330rpx;
+  height: 370rpx;
 }
 .item-img{
   width: 34%;
@@ -38,6 +38,7 @@
 }
 .item-info-bottom{
   height: 30%;
+  box-sizing: border-box;
 }
 .img-item{
   max-width: 100%;

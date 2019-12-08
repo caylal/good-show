@@ -4,9 +4,10 @@ App({
    let _this = this
    wx.getSystemInfo({
      success: res => {
-       _this.globalData.screenHeight = res.screenHeight;
-       _this.globalData.screenWidth = res.screenWidth;
-       _this.globalData.statusBarHeight = res.statusBarHeight;
+       _this.globalData.StatusBar = res.statusBarHeight;
+       let custom = wx.getMenuButtonBoundingClientRect();
+       _this.globalData.Custom = custom;
+       _this.globalData.CustomBar = custom.bottom + custom.top - res.statusBarHeight;
      },
    })
   },

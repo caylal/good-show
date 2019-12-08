@@ -7,10 +7,11 @@ const log = LogFactory.get('Index')
 const http = new HttpBase()
 Page({
   data: {
-   bannerList: [],
-   showList: [],
-   pi: 1,
-   ps: 10
+    cardCur: 0,
+    bannerList: [],
+    showList: [],
+    pi: 1,
+    ps: 10
   },
   onLoad: function () {
     wx.showLoading({
@@ -22,6 +23,16 @@ Page({
       this.getShowList()
     ]).then(res => {
       wx.hideLoading()
+    })
+  },
+  DotStyle(e) {
+    this.setData({
+      DotStyle: e.detail.value
+    })
+  },
+  cardSwiper(e) {
+    this.setData({
+      cardCur: e.detail.current
     })
   },
   getBanner () {

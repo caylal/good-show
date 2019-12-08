@@ -1,5 +1,8 @@
 <!-- 2019-11-26 -->
-<head-view title="授权登录" needBack="{{fasle}}"></head-view>
+<cu-custom bgColor="bg-gradual-red" isBack="{{false}}">
+	<view slot="backText">返回</view>
+	<view slot="content">授权登录</view>
+</cu-custom>
 <view class='container'>
   <view wx:if="{{!isAuthed}}">
     <view class="auth-box" wx:if="{{canIUse}}">
@@ -14,7 +17,7 @@
           <text>获得你的公开信息(昵称，头像等)</text>
       </view>
   
-      <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+      <button class='cu-btn round lg bg-green margin-xl text-xl' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
           授权登录
       </button>
     </view>

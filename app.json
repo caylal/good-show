@@ -13,7 +13,7 @@
     "navigationStyle": "custom"
   },
   "usingComponents": {
-    "head-view": "/components/head"
+    "cu-custom": "/components/cu-custom"
   },
   "tabBar": {
     "color": "#2c2c2c",
