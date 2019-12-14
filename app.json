@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/home/index",
     "pages/mine/index"
   ],
   "permission": {
@@ -14,26 +15,6 @@
   },
   "usingComponents": {
     "cu-custom": "/components/cu-custom"
-  },
-  "tabBar": {
-    "color": "#2c2c2c",
-    "selectedColor": "#d81e06",
-    "borderStyle": "black",
-    "backgroundColor": "#fafafa",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "iconPath": "assets/images/home.png",
-        "selectedIconPath": "assets/images/home-active.png",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/mine/index",
-        "iconPath": "assets/images/me.png",
-        "selectedIconPath": "assets/images/me-active.png",
-        "text": "我的"
-      }
-    ]
   },
   "sitemapLocation": "sitemap.json"
 }

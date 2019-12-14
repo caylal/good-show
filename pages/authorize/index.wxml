@@ -3,7 +3,28 @@
 	<view slot="backText">返回</view>
 	<view slot="content">授权登录</view>
 </cu-custom>
-<view class='container'>
+<view class="bg-white auth">
+  <view class="padding-lg pad-top" wx:if="{{canIUse}}">
+    <view class="padding flex justify-center">
+      <view class="text-center">
+        <view class="avatar"><open-data type="userAvatarUrl" mode="cover"></open-data></view>
+      </view>    
+    </view>
+    <view class="padding-lr text-center">
+      <view class="padding-lr solid-bottom"></view>
+    </view>
+    <view class="padding text-center text-grey">
+      <view>申请获取以下权限</view>
+      <text>获得你的公开信息(昵称，头像等)</text>
+    </view>
+    <view class="padding-xl">
+    <button class='cu-btn block lg bg-green text-xl' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+      微信授权登录
+    </button>
+    </view>
+  </view>
+</view>
+<!-- <view class='container'>
   <view wx:if="{{!isAuthed}}">
     <view class="auth-box" wx:if="{{canIUse}}">
       <view class='header'>
@@ -23,5 +44,5 @@
     </view>
   
     <view wx:else>请升级微信版本</view>
-  </view>
-</view>
+  </view> 
+</view>-->

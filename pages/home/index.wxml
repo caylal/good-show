@@ -1,0 +1,53 @@
+<!-- 2019-11-14 -->
+<scroll-view scroll-y class="scrollPage">
+  <cu-custom bgColor="bg-gradual-red" isBack="{{false}}">
+    <view slot="backText">返回</view>
+    <view slot="content">天空之旅</view>
+  </cu-custom>
+  <swiper class="card-swiper bg-gray {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+    <swiper-item wx:for="{{bannerList}}" wx:key class="{{cardCur==index?'cur':''}}">
+      <view class="swiper-item">
+        <image src="{{item.img}}" mode="scaleToFill" ></image>
+      </view>
+    </swiper-item>
+  </swiper>
+  <!-- 轮播图片结束 -->
+  <!-- <view class="more-title text-xl margin-bottom-sm">更多演出</view> -->
+  <view class="cu-bar bg-white">
+    <view class="action">
+      <text class="cuIcon-titles text-red"></text>
+      <text class="text-xl text-bold">更多演出</text>
+    </view>
+  </view>
+  <view class="flex flex-direction">
+    <block wx:for="{{showList}}" wx:key="{{item.id}}">
+      <navigator url="{{item.url}}">
+        <view class="show-item flex">
+          <view class="item-img">
+            <image class="img-item" src="{{item.img}}"></image>
+          </view>
+          <view class="item-info flex flex-direction padding-lr-sm">
+            <view class="item-info-top flex flex-direction">
+              <view class="info-title text-lg">{{item.title}}</view>
+              <text class="info-time text-lg text-darkGray margin-top-sm text-cut">{{item.time}}</text>
+              <text class="info-addr text-lg text-darkGray text-cut margin-top-xs">{{item.address}}</text>
+            </view>
+            <view class="item-info-bottom padding-top-sm ">
+                <view class="info-opt flex justify-between align-center ">
+                  <view class="info-price">
+                    <text class="price text-red text-price text-bold">{{item.price}}</text>
+                    <text class="text-sm margin-left-xs text-darkGray">起</text>
+                  </view>
+                  <view class="info-btn">
+                    <button class="cu-btn bg-gradual-red shadow-blur round margin-right-xs">去购票</button>
+                  </view>
+                </view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+  <view class='cu-tabbar-height'></view>
+</scroll-view>
+

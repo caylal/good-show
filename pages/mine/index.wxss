@@ -9,8 +9,6 @@ page{
   align-items: center;
   height: 310rpx;
   width: 100%;
-  background:url('https://i.postimg.cc/pLTDF2my/bg.png') 100% no-repeat;
-  background-size:cover;
 }
 .icon-view{
   margin-top: 50rpx;

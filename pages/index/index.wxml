@@ -1,52 +1,16 @@
-<!-- 2019-11-14 -->
-<cu-custom bgColor="bg-gradual-red" isBack="{{false}}">
-	<view slot="backText">返回</view>
-	<view slot="content">天空之旅</view>
-</cu-custom>
-<!-- 轮播图片开始 -->
-<!-- <swiper class="screen-swiper" indicator-dots="true" autoplay="true" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="rgba(210, 34, 34, .7)" current="0" current-item-id="" interval="3000" duration="1000" circular="true">
-  <block wx:for="{{bannerList}}" wx:key="{{item.id}}">
-    <swiper-item>
-      <image class="banner-img" src="{{item.img}}" mode='scaleToFill' />
-    </swiper-item>
-  </block>
-</swiper> -->
-<swiper class="card-swiper bg-gray {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
-  <swiper-item wx:for="{{bannerList}}" wx:key class="{{cardCur==index?'cur':''}}">
-    <view class="swiper-item">
-      <image src="{{item.img}}" mode="scaleToFill" ></image>
+<home wx:if="{{PageCur=='home'}}"></home>
+<mine wx:if="{{PageCur=='mine'}}"></mine>
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action" bindtap="NavChange" data-cur="home">
+    <view class='cuIcon-cu-image'>
+      <image src="/assets/images/tabbar/home{{PageCur=='home'?'_cur':''}}.png"></image>
     </view>
-  </swiper-item>
-</swiper>
-<!-- 轮播图片结束 -->
-<view class="more-title text-xl margin-bottom-sm">更多演出</view>
-<view class="more-show flex flex-direction">
-  <block wx:for="{{showList}}" wx:key="{{item.id}}">
-    <navigator url="{{item.url}}">
-      <view class="show-item flex">
-        <view class="item-img">
-          <image class="img-item" src="{{item.img}}"></image>
-        </view>
-        <view class="item-info flex flex-direction padding-lr-sm">
-          <view class="item-info-top flex flex-direction">
-            <view class="info-title text-lg">{{item.title}}</view>
-            <text class="info-time text-lg text-darkGray margin-top-sm text-cut">{{item.time}}</text>
-            <text class="info-addr text-lg text-darkGray text-cut margin-top-xs">{{item.address}}</text>
-          </view>
-          <view class="item-info-bottom padding-top-sm ">
-              <view class="info-opt flex justify-between align-center ">
-                <view class="info-price">
-                  <text class="price text-red text-price text-bold">{{item.price}}</text>
-                  <text class="text-sm margin-left-xs text-darkGray">起</text>
-                </view>
-                <view class="info-btn">
-                  <button class="cu-btn bg-gradual-red shadow-blur round margin-right-xs">去购票</button>
-                </view>
-              </view>
-          </view>
-        </view>
-      </view>
-    </navigator>
-  </block>
+    <view class="{{PageCur=='home'?'text-red':'text-gray'}}">首页</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="mine">
+    <view class='cuIcon-cu-image'>
+      <image src="/assets/images/tabbar/mine{{PageCur=='mine'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='mine'?'text-red':'text-gray'}}">我的</view>
+  </view>
 </view>
-
