@@ -3,4 +3,25 @@
     <image class="icon-view" src="{{info.avatar}}"></image>
     <text class='icon-text'>{{info.name}}</text>
   </view>
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/orders/index" hover-class="none">
+        <text class="cuIcon-formfill text-green"></text>
+        <text class="text-grey">我的订单</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/address/index" hover-class="none">
+        <text class="cuIcon-locationfill text-orange"></text>
+        <text class="text-grey">收货地址</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/feedback/index" hover-class="none">
+        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="text-grey">意见反馈</text>
+      </navigator>
+    </view>
+  </view>
+  <view class='cu-tabbar-height'></view>
 </scroll-view>

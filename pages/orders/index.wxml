@@ -1,0 +1,19 @@
+<!-- 2019-12-15 -->
+<cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">订单列表</view>
+</cu-custom>
+<view class="cu-card article">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-right">交易关闭</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content">红宝石艺术团.春之颂音乐会</view>
+      </view>
+      <image src="/assets/images/item01.jpg"></image>    
+      
+    </view>
+  </view>
+</view>

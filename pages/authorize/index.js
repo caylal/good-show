@@ -32,7 +32,7 @@ Page({
                 app.globalData.userInfo = res.user
                 app.globalData.token = res.token
                 log.log(getPageUrl() + ' loginByCustomer: ', res)
-                wx.switchTab({
+                wx.redirectTo({
                   url: "/pages/mine/index"
                 })
               }).catch(err => {
@@ -55,7 +55,7 @@ Page({
       user.loginByCustom(e.detail.userInfo).then(res => {
         getApp().globalData.userInfo = res.user
         getApp().globalData.token = res.token
-        wx.switchTab({
+        wx.redirectTo({
           url: "/pages/mine/index"
         })
       }).catch(err => {
