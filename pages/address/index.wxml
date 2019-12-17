@@ -1,0 +1,27 @@
+<!-- 2019-12-15 -->
+<cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">收货地址</view>
+</cu-custom>
+
+<radio-group class="block" bindchange="setDefault">
+  <view class="cu-card">
+    <view class="cu-item shadow" wx:for="{{addrList}}" wx:key="{{item.id}}">
+      <view class="cu-list padding-sm">
+        <view class="tel text-bold text-lg">{{item.name}} {{item.phone}}</view>
+        <view class="addr margin-top-sm">{{item.address}}</view>
+        <view class="solid-top flex justify-between margin-top-sm padding-top-sm">
+          <view class="flex align-center">
+            <radio class="red radio sm margin-right-xs" value="{{item.id}}" checked="{{item.default}}"></radio>
+            <text>设为默认</text>
+          </view>
+          <view>
+            <button class="cu-btn round margin-right-xs" bindtap="editAddress">编辑</button>
+            <button class="cu-btn bg-gradual-red shadow-blur round margin-right-xs" bindtap="deleAddress">删除</button>
+          </view>
+          
+        </view>
+      </view>
+    </view>
+  </view>
+</radio-group>

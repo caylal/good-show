@@ -4,16 +4,21 @@
 	<view slot="content">订单列表</view>
 </cu-custom>
 <view class="cu-card article">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-right">交易关闭</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-content">红宝石艺术团.春之颂音乐会</view>
+  <view class="cu-item shadow no-bottom" wx:for="{{orderList}}" wx:key="{{item.id}}">
+    <view class="cu-list padding-sm flex justify-between">
+      <view class="info-right">
+        <view class="info-title text-lg">{{item.title}}</view>
+        <view class="text-lg text-darkGray margin-top text-cut">{{item.time}}</view>
+        <view class="text-lg text-darkGray margin-top-sm text-cut">{{item.address}}</view>
+        <view class="price margin-top-lg flex text-lg">
+          <view class="text-red text-price text-bold">{{item.totalPrice}}</view>
+          <view class="text-sm text-darkGray margin-left-xs">/ 共{{item.total}}张</view>
+        </view>
       </view>
-      <image src="/assets/images/item01.jpg"></image>    
-      
+      <view class="info-left text-center margin-left-sm">
+        <view class="status text-darkGray">{{item.status}}</view>
+        <image mode="aspectFill" src="{{item.img}}"></image>
+      </view>
     </view>
   </view>
 </view>

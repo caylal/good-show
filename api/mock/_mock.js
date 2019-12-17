@@ -63,7 +63,69 @@ const s_list = [
     updateTime: formatTime(new Date())
   }
 ]
-
+// orders数据
+const orders_list = [
+  {
+    id: 'order_1000',
+    showId: '1000',
+    title: '红宝石艺术团.春之颂音乐会',
+    time: '2020.05.20-2020.05.31',
+    address: '深圳 | 保利剧院',
+    img: "/assets/images/item01.jpg",
+    totalPrice: 450,
+    total: 2,
+    orderStatus: 1, //状态数据
+    createTime: formatTime(new Date()),
+    upateTime: formatTime(new Date())
+  },
+  {
+    id: 'order_1001',
+    showId: '1001',
+    title: '开心麻花独角音乐剧《求婚女王》',
+    time: '2019.11.23-11.24',
+    address: '深圳 | 华夏艺术中心小剧场',
+    img: "/assets/images/item02.jpg",
+    totalPrice: 390,
+    total: 1,
+    orderStatus: 2, //状态数据
+    createTime: formatTime(new Date()),
+    upateTime: formatTime(new Date())
+  },
+  {
+    id: 'order_1002',
+    showId: '1003',
+    title: '吴青峰“太空备忘记”巡回演唱会深圳站',
+    time: '2020.01.10-01.11',
+    address: '深圳 | 华润深圳湾体育中心“春茧”体育馆',
+    img: "/assets/images/item04.jpg",
+    totalPrice: 680,
+    total: 1,
+    orderStatus: 3, //状态数据 1关闭2取消3待付款
+    createTime: formatTime(new Date()),
+    upateTime: formatTime(new Date())
+  }
+]
+// address数据
+const addr_list = [
+  {
+    id: '10000',
+    name: '张三',
+    phone: '137xxxx4578',
+    address: '广东省深圳市',
+    isDefault: 1, // 1是2否
+    createTime: formatTime(new Date()),
+    upateTime: formatTime(new Date())
+  },
+  {
+    id: '10001',
+    name: '李四',
+    phone: '156xxxx0481',
+    address: '广西壮族自治区桂林市',
+    isDefault: 2, // 1是2否
+    createTime: formatTime(new Date()),
+    upateTime: formatTime(new Date())
+  }
+]
 // 微信登录
 const loginUser = {
   user: { openid: 'oBtr-0JClB18EjozGjP-PbQf_AW4' },
@@ -74,6 +136,8 @@ const loginUser = {
 const template = {
   banner: b_list,
   show: s_list,
+  orders: orders_list,
+  address: addr_list,
   login: loginUser
 }
 
@@ -83,7 +147,9 @@ export const getMock = (res) => {
 
 export const MockApis = {
   'banner': req => getData(req.body, template.banner),
-  'getShow': req => getData(req.body, template.show),
+  'show': req => getData(req.body, template.show),
+  'orders': req => getData(req.body, template.orders),
+  'address': req => getData(req.body, template.address),
   'loginBywx': req => getData(req.body, template.login)
 }
 

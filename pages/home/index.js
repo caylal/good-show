@@ -59,7 +59,7 @@ Component({
           }
           resolve(true)
         }).catch(err => {
-          log.log(getPageUrl() + ' banner接口', err)
+          log.log(getPageUrl() + ' banner接口error', err)
           reject(true)
         })
       })
@@ -67,7 +67,7 @@ Component({
     getShowList() {
       let _this = this
       return new Promise((resolve, reject) => {
-        http.get(Apis.show.queryShow, {
+        http.get(Apis.show.restful.query, {
           data: {
             pi: _this.data.pi,
             ps: _this.data.ps
@@ -87,7 +87,7 @@ Component({
           }
           resolve(true)
         }).catch(err => {
-          log.log(getPageUrl() + ' showList接口', err)
+          log.log(getPageUrl() + ' showList接口error', err)
           reject(true)
         })
       })

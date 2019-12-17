@@ -3,7 +3,7 @@ import { HttpBase } from '../../service/https/httpBase.js'
 import { Apis } from '../../api/api.js'
 import { isEmpty, getPageUrl } from '../../utils/util.js'
 const app = getApp()
-const log = LogFactory.get('Orders')
+const log = LogFactory.get('Address')
 const http = new HttpBase()
 Page({
 
@@ -11,7 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orderList: [],
+    addrList: [],
     pi: 1,
     ps: 10
   },
@@ -23,43 +23,38 @@ Page({
     wx.showLoading({
       title: '加载中...'
     })
-    this.getOrdersList().then(res => wx.hideLoading())
+    this.getAddressList().then(res => wx.hideLoading())
   },
-  getOrdersList () {
+  getAddressList () {
     let _this = this
     return new Promise((resolve, reject) => {
-      http.get(Apis.orders.restful.query, {
+      http.get(Apis.address.restful.query, {
         data: {
           pi: _this.data.pi,
           ps: _this.data.ps
         }
       }).then(res => {
         const data = res
-        log.log('orders-list: ', res)
+        log.log('addr-list: ', res)
         if (!isEmpty(data.result)) {
           data.result.map(item => {
-            item.status = _this.formatStatus(item.orderStatus)
+            item.default = item.isDefault === 1 ? true : false
           })
           _this.setData({
-            orderList: data.result
+            addrList: data.result
           })
         } else {
-          log.log(getPageUrl() + ' orders无数据', res)
+          log.log(getPageUrl() + ' address无数据', res)
         }
         resolve(true)
       }).catch(err => {
-        log.log(getPageUrl() + ' orders接口error', err)
+        log.log(getPageUrl() + ' address接口error', err)
         reject(true)
       })
     })
   },
-  formatStatus (status) {
-    const state = {
-      1: '交易关闭',
-      2: '交易取消',
-      3: '待付款'
-    }
-    return state[status] || '交易关闭'
+  setDefault (e) {
+    log.log('change value:', e.detail.value)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

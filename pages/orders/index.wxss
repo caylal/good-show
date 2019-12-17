@@ -1,1 +1,22 @@
-/* pages/orders/index.wxss */
+.info-right {
+  width: 70%;
+}
+.info-left {
+  width: 30%;
+}
+.info-title {
+  font-weight: 650;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.info-left image{
+  width: 200rpx;
+  height: 7.5em;
+  border-radius: 6rpx;
+  margin-top: 20rpx;
+}
+.no-bottom {
+  padding-bottom: 0 !important;
+}

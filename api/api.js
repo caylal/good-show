@@ -20,13 +20,13 @@ export const Apis = {
   },
   show: {
     restful: new Restful('show'),  // 获取演出信息
-    queryShow: 'getShow'
+    // queryShow: 'getShow'
   },
-  order: {
-    restful: new Restful('order')  //获取订单信息
+  orders: {
+    restful: new Restful('orders')  //获取订单信息
   },
-  addr: {
-    restful: new Restful('addr') // 获取地址信息
+  address: {
+    restful: new Restful('address') // 获取地址信息
   },
   auth: {
     login: 'loginBywx'
