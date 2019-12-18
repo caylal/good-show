@@ -109,18 +109,33 @@ const orders_list = [
 const addr_list = [
   {
     id: '10000',
+    userid: 'u10000',
     name: '张三',
-    phone: '137xxxx4578',
-    address: '广东省深圳市',
+    phone: '13765474578',
+    region: ['广东省', '深圳市', '南山区'],
+    address: '某某街道某某号',
     isDefault: 1, // 1是2否
     createTime: formatTime(new Date()),
     upateTime: formatTime(new Date())
   },
   {
     id: '10001',
+    userid: 'u10000',
     name: '李四',
-    phone: '156xxxx0481',
-    address: '广西壮族自治区桂林市',
+    phone: '15676210481',
+    region: ['广西壮族自治区', '桂林市', '永福县'] ,
+    address: '某某街道某某号',
+    isDefault: 2, // 1是2否
+    createTime: formatTime(new Date()),
+    upateTime: formatTime(new Date())
+  },
+  {
+    id: '10002',
+    name: '小明',
+    userid: 'u10000',
+    phone: '18676549876',
+    region: ['浙江省', '杭州市', '上城区'],
+    address: '某某街道某某号',
     isDefault: 2, // 1是2否
     createTime: formatTime(new Date()),
     upateTime: formatTime(new Date())
@@ -128,7 +143,10 @@ const addr_list = [
 ]
 // 微信登录
 const loginUser = {
-  user: { openid: 'oBtr-0JClB18EjozGjP-PbQf_AW4' },
+  user: {
+    userid: 'u10000',
+    openid: 'oBtr-0JClB18EjozGjP-PbQf_AW4' 
+  },
   token: { session_key: 'brN8JCSMB519ajSXCzMYYQ==', expires_in: 7200 }
 }
 

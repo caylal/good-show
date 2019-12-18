@@ -27,17 +27,20 @@ Page({
   },
   getAddressList () {
     let _this = this
+    log.log("app" , app.globalData)
     return new Promise((resolve, reject) => {
       http.get(Apis.address.restful.query, {
         data: {
           pi: _this.data.pi,
-          ps: _this.data.ps
+          ps: _this.data.ps,
+          userid: app.globalData.userInfo.userid
         }
       }).then(res => {
         const data = res
         log.log('addr-list: ', res)
         if (!isEmpty(data.result)) {
           data.result.map(item => {
+            item.phone = _this.formatPhone(item.phone)
             item.default = item.isDefault === 1 ? true : false
           })
           _this.setData({
@@ -55,6 +58,25 @@ Page({
   },
   setDefault (e) {
     log.log('change value:', e.detail.value)
+  },
+  addAddress () {
+    wx.navigateTo({
+      url: '/pages/address/add/add',
+    })
+  },
+  editAddress (e) {
+    const list = this.data.addrList
+    let index = e.currentTarget.dataset.index
+    let this_addr = list[index]
+    const addr_str = JSON.stringify(this_addr)
+    wx.navigateTo({
+      url: '/pages/address/add/add?address=' + addr_str,
+    })
+  },
+  formatPhone (tel) {
+    let value = (Number(tel) && String(tel).length === 11 && String(tel)) || ''
+    let reg = /^(\d{3})\d{4}(\d{4})$/
+    return (value && value.replace(reg, '$1****$2')) || tel
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

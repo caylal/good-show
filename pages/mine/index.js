@@ -11,10 +11,16 @@ Component({
     info: {}
   },
   created () {
-    if (isEmpty(wx.getStorageSync("userInfo"))) {
-      wx.redirectTo({
-        url: '/pages/authorize/index',
-      })
+    if (!app.globalData.userInfo) {
+      if (!isEmpty(wx.getStorageSync("userInfo"))) {
+        app.userInfoCallback = userInfo => {
+          log.log('app.userInfo: ', userInfo) 
+        }
+      } else {
+        wx.redirectTo({
+          url: '/pages/authorize/index',
+        })
+      }
     }
   },
   attached () {

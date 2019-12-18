@@ -33,7 +33,7 @@ Page({
                 app.globalData.token = res.token
                 log.log(getPageUrl() + ' loginByCustomer: ', res)
                 wx.redirectTo({
-                  url: "/pages/mine/index"
+                  url: "/pages/index/index?cur=mine"
                 })
               }).catch(err => {
                 log.log(getPageUrl(), err)
@@ -56,7 +56,7 @@ Page({
         getApp().globalData.userInfo = res.user
         getApp().globalData.token = res.token
         wx.redirectTo({
-          url: "/pages/mine/index"
+          url: "/pages/index/index?cur=mine"
         })
       }).catch(err => {
         //登录失败,跳转错误页面       

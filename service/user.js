@@ -25,7 +25,7 @@ const loginByCustom = (info) => {
               province: info.province,
               city: info.city
             }
-            Object.assign(result.user, userInfo)
+            Object.assign(userInfo, result.user)
             wx.setStorageSync('userInfo', userInfo)
             wx.setStorageSync('token', result.token)
             resolve(result)
@@ -74,7 +74,7 @@ const checkSession = () => {
 const checkLogin = () => {
   return new Promise((resolve, reject) => {
     const user = wx.getStorageInfoSync('userInfo')
-    const tokem = wx.getStorageInfoSync('token')
+    const token = wx.getStorageInfoSync('token')
     if (user && token) {
       resolve(true)
     } else {

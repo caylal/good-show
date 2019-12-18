@@ -6,18 +6,18 @@
 
 <radio-group class="block" bindchange="setDefault">
   <view class="cu-card">
-    <view class="cu-item shadow" wx:for="{{addrList}}" wx:key="{{item.id}}">
+    <view class="cu-item shadow" wx:for="{{addrList}}" wx:key="{{index}}">
       <view class="cu-list padding-sm">
         <view class="tel text-bold text-lg">{{item.name}} {{item.phone}}</view>
         <view class="addr margin-top-sm">{{item.address}}</view>
         <view class="solid-top flex justify-between margin-top-sm padding-top-sm">
           <view class="flex align-center">
-            <radio class="red radio sm margin-right-xs" value="{{item.id}}" checked="{{item.default}}"></radio>
+            <radio class="red radio sm margin-right-xs" value="{{index}}" checked="{{item.default}}"></radio>
             <text>设为默认</text>
           </view>
           <view>
-            <button class="cu-btn round margin-right-xs" bindtap="editAddress">编辑</button>
-            <button class="cu-btn bg-gradual-red shadow-blur round margin-right-xs" bindtap="deleAddress">删除</button>
+            <button class="cu-btn round margin-right-xs" data-index="{{index}}" bindtap="editAddress">编辑</button>
+            <button class="cu-btn bg-gradual-red shadow-blur round margin-right-xs" data-index="{{index}}" bindtap="deleAddress">删除</button>
           </view>
           
         </view>
@@ -25,3 +25,9 @@
     </view>
   </view>
 </radio-group>
+<view class="cu-bar bg-white tabbar border foot" bindtap="addAddress">
+  <view class="bg-red submit text-lg">
+    <text class="cuIcon-add lg text-white">新增收货地址</text>
+  </view>
+</view>
+<view class='cu-tabbar-height'></view>

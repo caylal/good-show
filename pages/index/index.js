@@ -7,6 +7,13 @@ Page({
   data: {
     PageCur: 'home'
   },
+  onLoad (options) {
+    if (options.cur) {
+      this.setData({
+        PageCur: options.cur
+      })
+    }
+  },
   NavChange(e) {
     this.setData({
       PageCur: e.currentTarget.dataset.cur
