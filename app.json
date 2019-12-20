@@ -5,7 +5,8 @@
     "pages/mine/index",
     "pages/orders/index",
     "pages/address/index",
-    "pages/address/add/add"
+    "pages/address/add/add",
+    "pages/orders/detail/detail"
   ],
   "permission": {
     "scope.userLocation": {

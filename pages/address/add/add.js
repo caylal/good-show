@@ -32,14 +32,22 @@ Page({
   },
   bindName(e) {
     let addr = this.data.address
-    addr.username = e.detail.value
+    addr.name = e.detail.value
+    this.setData({
+      address: addr
+    })
+  },
+  bindPhoneFocus (e) {
+    let addr = this.data.address
+    addr.formatPhone = ''
     this.setData({
       address: addr
     })
   },
   bindPhone(e) {
     let addr = this.data.address
-    addr.userphone = e.detail.value
+    addr.formatPhone = e.detail.value
+    addr.phone = e.detail.value
     this.setData({
       address: addr
     })
@@ -88,79 +96,37 @@ Page({
       })
       return false
     }
-    if (_this.data.isAdd) {
-      http.post(Apis.address.restful.post, {
-        data: {
-          userid: app.globalData.userInfo.userid,
-          name: data.name,
-          phone: data.phone,
-          region: data.region,
-          address: data.address
-        }
-      }).then(res => {
-        log.log(getPageUrl() + '添加地址：', res)
-        if (!isEmpty(res.result)) {
-          wx.showToast({
-            title: '添加成功！',
-            icon: 'none',
-            success: function (ress) {
-              wx.navigateBack({
-                delta: 1
-              })
-            }
-          })
-        }
-      }).catch(err => {
-        log.log(getPageUrl() + '添加地址失败：', err)
+    let params = data
+    params.userid = app.globalData.userInfo.userid
+    !_this.data.isAdd && Object.assign(params, {id: data.id})
+    http.post(Apis.address.restful.post, {
+      data: params
+    }).then(res => {
+      log.log(getPageUrl() + ' 收货地址：', res)
+      if (!isEmpty(res)) {
+        let state = (res.code === 200 && '成功') || '失败'
         wx.showToast({
-          title: '添加失败',
+          title: '操作' + state,
+          icon: 'success',
+          success: function (ress) {
+            wx.navigateBack({
+              delta: 1
+            })
+          }
+        })
+      } else {
+        log.log(getPageUrl() + " 接口数据返回错误")
+        wx.showToast({
+          title: '操作失败',
           icon: 'error'
         })
+      }
+    }).catch(err => {
+      log.log(getPageUrl() + '操作收货地址失败：', err)
+      wx.showToast({
+        title: '操作失败',
+        icon: 'error'
       })
-    } else {
-      http.post(Apis.address.restful.put, {
-        data: {
-          id: data.id,
-          userid: app.globalData.userInfo.userid,
-          name: data.name,
-          phone: data.phone,
-          region: data.region,
-          address: data.address
-        }
-      }).then(res => {
-        log.log(getPageUrl() + '修改地址：', res)
-        if (!isEmpty(res.result)) {
-          wx.showToast({
-            title: '修改成功！',
-            icon: 'none',
-            success: function (ress) {
-              wx.navigateBack({
-                delta: 1
-              })
-            }
-          })
-        }
-      }).catch(err => {
-        log.log(getPageUrl() + '修改地址失败：', err)
-        wx.showToast({
-          title: '修改失败',
-          icon: 'error'
-        })
-      })
-    }
-  },
-  // cancelBtn() {
-  //   if (fresh) {
-  //     let pages = getCurrentPages() // 获取当前页面
-  //     let prevPage = pages[pages.length - 2]
-  //     prevPage.setData({
-  //       isFresh: true,
-  //       checked: true,
-  //       info: JSON.stringify(data)
-  //     })
-  //   }
-  //   wx.navigateBack({
-  //     delta: 1
-  //   })
-  // },
+    })
+  }
 })

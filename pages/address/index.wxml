@@ -8,7 +8,7 @@
   <view class="cu-card">
     <view class="cu-item shadow" wx:for="{{addrList}}" wx:key="{{index}}">
       <view class="cu-list padding-sm">
-        <view class="tel text-bold text-lg">{{item.name}} {{item.phone}}</view>
+        <view class="tel text-bold text-lg">{{item.name}} {{item.formatPhone}}</view>
         <view class="addr margin-top-sm">{{item.address}}</view>
         <view class="solid-top flex justify-between margin-top-sm padding-top-sm">
           <view class="flex align-center">

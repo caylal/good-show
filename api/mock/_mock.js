@@ -150,13 +150,17 @@ const loginUser = {
   token: { session_key: 'brN8JCSMB519ajSXCzMYYQ==', expires_in: 7200 }
 }
 
-
+const cb = {
+  id: '返回的id',
+  info: '返回的信息'
+}
 const template = {
   banner: b_list,
   show: s_list,
   orders: orders_list,
   address: addr_list,
-  login: loginUser
+  login: loginUser,
+  callback: cb
 }
 
 export const getMock = (res) => {
@@ -164,10 +168,12 @@ export const getMock = (res) => {
 }
 
 export const MockApis = {
-  'banner': req => getData(req.body, template.banner),
-  'show': req => getData(req.body, template.show),
-  'orders': req => getData(req.body, template.orders),
-  'address': req => getData(req.body, template.address),
+  'queryBanner': req => getData(req.body, template.banner),
+  'queryShow': req => getData(req.body, template.show),
+  'queryOrders': req => getData(req.body, template.orders),
+  'queryAddress': req => getData(req.body, template.address),
+  'post address': req => getData(req.body, template.callback),
+  'delete address/{id}': req => getData(req.body, template.callback),
   'loginBywx': req => getData(req.body, template.login)
 }
 

@@ -18,7 +18,7 @@ export class HttpProxy {
     } else {
       api = this.urlPrefix(api, apiPrefix)
       const httpApi = this.analyzeApi(api)
-      if (!!params && !params.path) {
+      if (!!params && !!params.path) {
         httpApi.url = this.urlFormat(httpApi.url, params.path)
       }
       this.log.log('request: ' + httpApi.method + ' ' + httpApi.url, params.data)
@@ -44,7 +44,7 @@ export class HttpProxy {
     return result
   }
 
-  dealWitchCode ({response, resolve, reject}) {
+  static dealWitchCode ({response, resolve, reject}) {
     const dataResponse = response.data
     if (!!dataResponse && dataResponse.code === 200) {
       resolve(dataResponse)
@@ -60,7 +60,7 @@ export class HttpProxy {
     }
   }
 
-  urlPrefix (url, prefix) {
+  static urlPrefix (url, prefix) {
     let result = url
     if (!!prefix) {
       if (url.indexOf(' ') > 0) {
@@ -73,13 +73,13 @@ export class HttpProxy {
     return result
   }
 
-  analyzeApi (api) {
+  static analyzeApi (api) {
     let result;
     if (typeof api === 'string') {
       const splits = api.split(' ')
       let method = 'get'
       let url
-      if (splits.lenth === 1) {
+      if (splits.length === 1) {
         url = splits[0]
       } else {
         method = splits[0]
@@ -95,7 +95,7 @@ export class HttpProxy {
     return result
   }
 
-  urlFormat (url, pathParam) {
+  static urlFormat (url, pathParam) {
     let result = url 
     if (!!pathParam) {
       for (const key in pathParam) {

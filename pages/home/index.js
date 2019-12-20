@@ -42,7 +42,7 @@ Component({
     getBanner() {
       let _this = this
       return new Promise((resolve, reject) => {
-        http.get(Apis.banner.queryBanner, {
+        http.get(Apis.banner.queryList, {
           data: {
             pi: _this.data.pi,
             ps: _this.data.ps
@@ -67,7 +67,7 @@ Component({
     getShowList() {
       let _this = this
       return new Promise((resolve, reject) => {
-        http.get(Apis.show.restful.query, {
+        http.get(Apis.show.queryList, {
           data: {
             pi: _this.data.pi,
             ps: _this.data.ps

@@ -5,11 +5,11 @@
 <form>
   <view class="cu-form-group margin-top">
 		<view class="title">收货人</view>
-		<input bindinput="bindName" placeholder="收货人" value="{{address.name}}"></input>
+		<input bindblur="bindName" placeholder="收货人" value="{{address.name}}" focus></input>
 	</view>
   <view class="cu-form-group">
 		<view class="title">手机号</view>
-		<input bindinput="bindPhone" value="{{address.phone}}" placeholder="手机号"></input>
+		<input bindinput="bindPhone" bindfocus="bindPhoneFocus" value="{{address.formatPhone}}" placeholder="手机号" ></input>
     <view class="cu-capsule radius">
 			<view class="cu-tag bg-blue">
 				+86

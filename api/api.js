@@ -16,17 +16,19 @@ export class Restful {
 }
 export const Apis = {
   banner: {
-    queryBanner: 'banner'
+    queryList: 'queryBanner'
   },
   show: {
     restful: new Restful('show'),  // 获取演出信息
-    // queryShow: 'getShow'
+    queryList: 'queryShow'
   },
   orders: {
-    restful: new Restful('orders')  //获取订单信息
+    restful: new Restful('orders'), //获取订单信息
+    queryList: 'queryOrders'
   },
   address: {
-    restful: new Restful('address') // 获取地址信息
+    restful: new Restful('address'),// 获取地址信息
+    queryList: 'queryAddress'
   },
   auth: {
     login: 'loginBywx'

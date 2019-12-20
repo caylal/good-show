@@ -28,10 +28,11 @@ Page({
   getOrdersList () {
     let _this = this
     return new Promise((resolve, reject) => {
-      http.get(Apis.orders.restful.query, {
+      http.get(Apis.orders.queryList, {
         data: {
           pi: _this.data.pi,
-          ps: _this.data.ps
+          ps: _this.data.ps,
+          userid: app.globalData.userInfo.userid
         }
       }).then(res => {
         const data = res
@@ -39,6 +40,7 @@ Page({
         if (!isEmpty(data.result)) {
           data.result.map(item => {
             item.status = _this.formatStatus(item.orderStatus)
+            item.url = `/pages/orders/detail/detail?id=${item.id}`
           })
           _this.setData({
             orderList: data.result
