@@ -57,7 +57,7 @@ Page({
   },
   formatStatus (status) {
     const state = {
-      1: '交易关闭',
+      1: '交易成功',
       2: '交易取消',
       3: '待付款'
     }

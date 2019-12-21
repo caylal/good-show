@@ -2,3 +2,55 @@
 	<view slot="backText">返回</view>
 	<view slot="content">订单详情</view>
 </cu-custom>
+<view class="cu-bar bg-orange light">
+  <view class="action sub-title">
+    <text class="text-lg text-bold text-orange">交易成功</text>
+    <text class="bg-white"></text>
+    <!-- last-child选择器-->
+  </view>
+  <view class="action">
+    <view class="text-orange">剩余支付时间: 00:14:32</view>
+  </view>
+</view>
+<!-- <view class="cu-card no-card margin-top-sm">
+  <view class="cu-item shadow no-bottom">
+    <view class="cu-list padding-sm flex justify-between solid-bottom">
+      <view class="info-right">
+        <view class="info-title text-lg">红宝石艺术团.春之颂音乐会</view>
+        <view class="text-lg text-darkGray margin-top text-cut">2020.05.20-2020.05.31</view>
+        <view class="text-lg text-darkGray margin-top-sm text-cut">深圳 | 保利剧院</view>
+      </view>
+      <view class="info-left text-center margin-left-sm">
+        <image mode="aspectFill" src="/assets/images/item01.jpg"></image>
+      </view>
+    </view>
+    <view class="cu-list padding">
+      <view class="flex justify-between">
+        <view>180元 x 1张</view>
+        <view class="text-price">180</view>
+      </view>
+    </view> 
+  </view>
+</view> -->
+<view class="cu-list padding bg-white margin-top-sm">
+  <view class="cu-item padding-bottom-sm flex justify-between solid-bottom">
+    <view class="info-right">
+      <view class="info-title text-lg">红宝石艺术团.春之颂音乐会</view>
+      <view class="text-lg text-darkGray margin-top text-cut">2020.05.20-2020.05.31</view>
+      <view class="text-lg text-darkGray margin-top-sm text-cut">深圳 | 保利剧院</view>
+    </view>
+    <view class="info-left text-center margin-left-sm">
+      <image mode="aspectFill" src="/assets/images/item01.jpg"></image>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content flex justify-between">
+      <text>180元 x 1张</text>
+      <text class="text-price">180</text>
+    </view>
+    <view class="content flex justify-between">
+      <text>280元 x 1张</text>
+      <text class="text-price">280</text>
+    </view>
+  </view>
+</view>

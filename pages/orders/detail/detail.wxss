@@ -1,1 +1,9 @@
-/* pages/orders/detail/detail.wxss */
+@import "../index.wxss";
+.info-left image{
+  width: 200rpx;
+  height: 7em;
+  margin-top: 0; 
+}
+.cu-item .content{
+  padding-top: 20rpx;
+} 
