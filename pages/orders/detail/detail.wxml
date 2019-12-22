@@ -4,53 +4,72 @@
 </cu-custom>
 <view class="cu-bar bg-orange light">
   <view class="action sub-title">
-    <text class="text-lg text-bold text-orange">交易成功</text>
+    <text class="text-lg text-bold text-orange">{{order.status}}</text>
     <text class="bg-white"></text>
-    <!-- last-child选择器-->
   </view>
-  <view class="action">
-    <view class="text-orange">剩余支付时间: 00:14:32</view>
+  <view class="action" wx:if="{{order.orderStatus === 2}}">
+    <view class="text-orange">剩余支付时间: {{countdown}}</view>
   </view>
 </view>
-<!-- <view class="cu-card no-card margin-top-sm">
-  <view class="cu-item shadow no-bottom">
-    <view class="cu-list padding-sm flex justify-between solid-bottom">
-      <view class="info-right">
-        <view class="info-title text-lg">红宝石艺术团.春之颂音乐会</view>
-        <view class="text-lg text-darkGray margin-top text-cut">2020.05.20-2020.05.31</view>
-        <view class="text-lg text-darkGray margin-top-sm text-cut">深圳 | 保利剧院</view>
-      </view>
-      <view class="info-left text-center margin-left-sm">
-        <image mode="aspectFill" src="/assets/images/item01.jpg"></image>
-      </view>
-    </view>
-    <view class="cu-list padding">
-      <view class="flex justify-between">
-        <view>180元 x 1张</view>
-        <view class="text-price">180</view>
-      </view>
-    </view> 
-  </view>
-</view> -->
 <view class="cu-list padding bg-white margin-top-sm">
   <view class="cu-item padding-bottom-sm flex justify-between solid-bottom">
     <view class="info-right">
-      <view class="info-title text-lg">红宝石艺术团.春之颂音乐会</view>
-      <view class="text-lg text-darkGray margin-top text-cut">2020.05.20-2020.05.31</view>
-      <view class="text-lg text-darkGray margin-top-sm text-cut">深圳 | 保利剧院</view>
+      <view class="info-title text-lg">{{order.title}}</view>
+      <view class="text-lg text-darkGray margin-top text-cut">{{order.time}}</view>
+      <view class="text-lg text-darkGray margin-top-sm text-cut">{{order.address}}</view>
     </view>
     <view class="info-left text-center margin-left-sm">
-      <image mode="aspectFill" src="/assets/images/item01.jpg"></image>
+      <image mode="aspectFill" src="{{order.img}}"></image>
+    </view>
+  </view>
+  <view class="cu-item ticket solid-bottom">
+    <view class="content" wx:for="{{order.ticket}}" wx:key="{{index}}">
+      <text>{{item.type}}元 x {{item.count}}张</text>
+      <text class="text-price">{{item.type}}</text>
+    </view>
+    <!-- <view class="content padding-bottom-sm">
+      <text>280元 x 1张</text>
+      <text class="text-price">280</text>
+    </view> -->
+  </view>
+  <view class="cu-item solid-bottom">
+    <view class="content">
+      <text>商品总额</text>
+      <text class="text-price">{{order.totalPrice}}</text>
+    </view>
+    <view class="content padding-bottom-sm">
+      <text>运费</text>
+      <text class="text-price">{{order.freight}}</text>
     </view>
   </view>
   <view class="cu-item">
-    <view class="content flex justify-between">
-      <text>180元 x 1张</text>
-      <text class="text-price">180</text>
-    </view>
-    <view class="content flex justify-between">
-      <text>280元 x 1张</text>
-      <text class="text-price">280</text>
+    <view class="content">
+      <text>需付</text>
+      <text class="text-price">{{order.totalPrice + order.freight}}</text>
     </view>
   </view>
 </view>
+<view class="cu-list padding bg-white">
+  <view class="cu-item">
+    <text>取票方式</text>
+    <text class="text-bold margin-left">快递</text>
+  </view>
+</view>
+<view class="cu-list padding bg-white">
+  <view class="cu-item">
+    <view class="title text-bold">订单信息</view>
+    <view class="action">
+      <text>订单编号</text>
+      <text class="margin-left">{{order.id}}</text>
+    </view>
+    <view class="action">
+      <text>创建时间</text>
+      <text class="margin-left">{{order.createTime}}</text>
+    </view>
+  </view>
+</view>
+<view class="cu-bar btn-group bg-white foot" wx:if="{{order.orderStatus === 2}}">
+  <button class="cu-btn line-grey shadow-blur round">取消订单</button>
+  <button class="cu-btn bg-gradual-red shadow-blur round">去支付</button>
+</view>
+<view class='cu-tabbar-height'></view>

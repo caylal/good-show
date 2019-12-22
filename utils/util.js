@@ -10,7 +10,7 @@ export const formatTime = (date, types = 1) => {
   if (types !== 1) {
     return [hour, minute, second].map(formatNumber).join(':')
   } else {
-    return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+    return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':')
   }
 }
 
@@ -34,5 +34,14 @@ export const getPageUrl = () => {
   let pages = getCurrentPages()
   let currentPage = pages[pages.length - 1]
   return currentPage.route
+}
+
+export const formatStatus = (status) => {
+  const state = {
+    1: '交易成功',
+    2: '待付款',
+    3: '交易关闭'
+  }
+  return state[status] || '交易关闭'
 }
 

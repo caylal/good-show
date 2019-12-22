@@ -72,10 +72,12 @@ const orders_list = [
     time: '2020.05.20-2020.05.31',
     address: '深圳 | 保利剧院',
     img: "/assets/images/item01.jpg",
-    totalPrice: 450,
+    totalPrice: 460,
     total: 2,
+    ticket: [{type: 180, count: 1},{type: 280, count: 1}],
+    freight: 0,
     orderStatus: 1, //状态数据
-    createTime: formatTime(new Date()),
+    createTime: '2019-12-22 17:38:00',
     upateTime: formatTime(new Date())
   },
   {
@@ -87,8 +89,10 @@ const orders_list = [
     img: "/assets/images/item02.jpg",
     totalPrice: 390,
     total: 1,
+    ticket: [{ type: 390, count: 1 }],
+    freight: 0,
     orderStatus: 2, //状态数据
-    createTime: formatTime(new Date()),
+    createTime: '2019-12-22 18:15:00',
     upateTime: formatTime(new Date())
   },
   {
@@ -100,8 +104,10 @@ const orders_list = [
     img: "/assets/images/item04.jpg",
     totalPrice: 680,
     total: 1,
+    ticket: [{ type: 680, count: 1 }],
+    freight: 0,
     orderStatus: 3, //状态数据 1关闭2取消3待付款
-    createTime: formatTime(new Date()),
+    createTime: '2019-12-22 17:38:00',
     upateTime: formatTime(new Date())
   }
 ]

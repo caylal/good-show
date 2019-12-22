@@ -1,7 +1,7 @@
 import { LogFactory } from '../../service/log/logFactory.js'
 import { HttpBase } from '../../service/https/httpBase.js'
 import { Apis } from '../../api/api.js'
-import { isEmpty, getPageUrl } from '../../utils/util.js'
+import { isEmpty, getPageUrl, formatStatus, formatTime } from '../../utils/util.js'
 const app = getApp()
 const log = LogFactory.get('Orders')
 const http = new HttpBase()
@@ -39,12 +39,14 @@ Page({
         log.log('orders-list: ', res)
         if (!isEmpty(data.result)) {
           data.result.map(item => {
-            item.status = _this.formatStatus(item.orderStatus)
+            item.status = formatStatus(item.orderStatus)
+            item.createTime = formatTime(item.createTime)
             item.url = `/pages/orders/detail/detail?id=${item.id}`
           })
           _this.setData({
             orderList: data.result
           })
+          wx.setStorageSync('order_list', data.result)
         } else {
           log.log(getPageUrl() + ' orders无数据', res)
         }
@@ -54,14 +56,6 @@ Page({
         reject(true)
       })
     })
-  },
-  formatStatus (status) {
-    const state = {
-      1: '交易成功',
-      2: '交易取消',
-      3: '待付款'
-    }
-    return state[status] || '交易关闭'
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

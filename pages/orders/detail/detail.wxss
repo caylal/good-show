@@ -6,4 +6,12 @@
 }
 .cu-item .content{
   padding-top: 20rpx;
+  display: flex;
+  justify-content: space-between
 } 
+.cu-item .action{
+  padding-top: 20rpx;
+}
+.ticket >.content:last-child{
+  padding-bottom: 30rpx;
+}
