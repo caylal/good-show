@@ -69,7 +69,7 @@
   </view>
 </view>
 <view class="cu-bar btn-group bg-white foot" wx:if="{{order.orderStatus === 2}}">
-  <button class="cu-btn line-grey shadow-blur round">取消订单</button>
-  <button class="cu-btn bg-gradual-red shadow-blur round">去支付</button>
+  <button class="cu-btn line-grey shadow-blur round" bindtap="cancel">取消订单</button>
+  <button class="cu-btn bg-gradual-red shadow-blur round" bindtap="payfor">去支付</button>
 </view>
 <view class='cu-tabbar-height'></view>

@@ -92,7 +92,7 @@ const orders_list = [
     ticket: [{ type: 390, count: 1 }],
     freight: 0,
     orderStatus: 2, //状态数据
-    createTime: '2019-12-22 18:15:00',
+    createTime: '2019-12-24 21:30:00',
     upateTime: formatTime(new Date())
   },
   {
@@ -106,8 +106,8 @@ const orders_list = [
     total: 1,
     ticket: [{ type: 680, count: 1 }],
     freight: 0,
-    orderStatus: 3, //状态数据 1关闭2取消3待付款
-    createTime: '2019-12-22 17:38:00',
+    orderStatus: 2, //状态数据 1交易成功2待付款3交易关闭
+    createTime: '2019-12-24 21:28:00',
     upateTime: formatTime(new Date())
   }
 ]
@@ -180,6 +180,7 @@ export const MockApis = {
   'queryAddress': req => getData(req.body, template.address),
   'post address': req => getData(req.body, template.callback),
   'delete address/{id}': req => getData(req.body, template.callback),
+  'post orders': req => getData(req.body, template.callback),
   'loginBywx': req => getData(req.body, template.login)
 }
 

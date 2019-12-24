@@ -57,6 +57,13 @@ Page({
       })
     })
   },
+  onShow () {
+    let pages = getCurrentPages()
+    let currPage = pages[pages.length - 1]
+    if (!isEmpty(currPage.data.refresh)) {
+      this.onLoad()
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
